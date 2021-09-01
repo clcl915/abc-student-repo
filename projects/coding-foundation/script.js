@@ -1,6 +1,6 @@
 function createSquares(){
   event.preventDefault();
-  event.stopImmediatePropagation()
+  event.stopImmediatePropagation();
   document.getElementById('squaresArea').innerHTML = '';
   let count= document.getElementById('numSquares').value;
   console.log(count);
