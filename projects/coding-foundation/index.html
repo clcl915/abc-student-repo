@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cindy - Coding Foundation ABC </title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="container">
+      <!-- A Title Introduction -->
+      <h3>Hi there! <br> Let's add some squares to this page!</h3>
+
+      <!-- Have users submit a number of squares to input -->
+      <div>
+        <form onsubmit="createSquares()">
+          <input type="number" id="numSquares" name="numSquares">
+          <input type="submit" value="Create Squares">
+        </form>
+      </div>
+      <!-- This is the area to print out squares -->
+      <div id="squaresArea">
+      </div>
+    </div>
+    <script src="script.js"/>
+  </body>
+</html>
