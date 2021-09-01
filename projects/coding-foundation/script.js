@@ -8,4 +8,5 @@ function createSquares(){
     singleSquare.className = "square";
     document.getElementById("squaresArea").appendChild(singleSquare);
   }
+  return false;
 }
