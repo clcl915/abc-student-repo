@@ -12,7 +12,7 @@
 
       <!-- Have users submit a number of squares to input -->
       <div>
-        <form onsubmit="createSquares()">
+        <form onsubmit="return createSquares(this)">
           <input type="number" id="numSquares" name="numSquares">
           <input type="submit" value="Create Squares">
         </form>

@@ -1,4 +1,4 @@
-function createSquares(){
+function createSquares(e){
   e.preventDefault();
   e.stopImmediatePropagation();
   document.getElementById('squaresArea').innerHTML = '';
