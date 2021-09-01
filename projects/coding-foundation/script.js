@@ -1,5 +1,4 @@
 function createSquares(e){
-  e.preventDefault();
   e.stopImmediatePropagation();
   document.getElementById('squaresArea').innerHTML = '';
   let count= document.getElementById('numSquares').value;
@@ -9,4 +8,5 @@ function createSquares(e){
     singleSquare.className = "square";
     document.getElementById("squaresArea").appendChild(singleSquare);
   }
+  e.preventDefault();
 }
