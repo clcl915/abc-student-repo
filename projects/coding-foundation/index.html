@@ -12,10 +12,8 @@
 
       <!-- Have users submit a number of squares to input -->
       <div>
-        <form onsubmit="createSquares()">
           <input type="number" id="numSquares" name="numSquares">
-          <input type="submit" value="Create Squares">
-        </form>
+          <input type="submit" onclick="createSquares()" value="Create Squares">
       </div>
       <!-- This is the area to print out squares -->
       <div id="squaresArea">
