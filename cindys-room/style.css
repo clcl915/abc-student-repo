@@ -1,0 +1,31 @@
+#selfIntro{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+  flex-direction: column;
+}
+body{
+  background-image: url(./assets/white-clouds-blue-bkg.jpg);
+  object-fit: contain;
+  font-family: 'Indie Flower', cursive;
+  color:#143f6a;
+  width: 80vw;
+  margin: auto;
+}
+.about{
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  gap:2%;
+
+}
+#aboutLink{
+  text-decoration: underline;
+  cursor: pointer;
+  color:inherit;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Indie Flower', cursive;
+}
