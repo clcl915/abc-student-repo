@@ -48,6 +48,7 @@ body{
   width: 100%;
   text-align: left;
   display: flex;
+  flex-direction: row;
 }
 a{
   color:inherit;
