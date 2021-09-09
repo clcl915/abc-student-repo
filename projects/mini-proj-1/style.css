@@ -1,0 +1,12 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:relative;
+  width:100vw;
+  height:100vh;
+  margin: auto;
+}
+#myRange{
+  position:absolute;
+}
