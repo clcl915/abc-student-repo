@@ -47,6 +47,7 @@ body{
 .projects{
   width: 100%;
   text-align: left;
+  display: flex;
 }
 a{
   color:inherit;
@@ -54,9 +55,18 @@ a{
 ul{
   list-style: none;
 }
-ul li::before {
+#miniProjects li::before {
   content: "\2022";
   color: #ff887c;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+#largeProjects li::before {
+  content: "\2022";
+  color:#FCCD81;
   font-weight: bold;
   display: inline-block;
   width: 1em;
