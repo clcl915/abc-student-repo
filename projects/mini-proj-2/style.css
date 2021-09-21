@@ -1,0 +1,56 @@
+body{
+  background-image:linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)),url('./assets/sky-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  color:white;
+  font-family: 'Exo 2', sans-serif;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.container{
+  text-align: center;
+  padding: 40px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, .15);
+  border-radius: 15px;
+}
+#showTime{
+  font-size: 1.5em;
+}
+#goodMessage{
+  font-size: 2em;
+}
+button{
+  outline: none;
+  background: transparent;
+  border: 1px solid white;
+  color: inherit;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px 0px;
+  cursor: pointer;
+  font-weight: 700;
+  text-align: center;
+}
+button:hover{
+  background: white;
+  border:1px solid lightblue;
+  color: lightblue;
+}
+.buttons #reset{
+  margin: auto;
+  display:none;
+}
+.tasks{
+  text-align: left;
+  display: none;
+}

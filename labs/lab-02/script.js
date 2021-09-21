@@ -13,10 +13,10 @@ function openWindow(){
     let ranTime= 1000 + Math.random()*1000;
     myWindow = window.open("window", "", specifications);
     myWindow.addEventListener('load',()=>{
-        setTimeout(()=>{myWindow.close();},ranTime);
+        setTimeout(()=>{
+          myWindow.close();
+        }, ranTime);
     })
-
-
 }
 function openManyWindow(){
   for (let i=0;i<10;i++){
