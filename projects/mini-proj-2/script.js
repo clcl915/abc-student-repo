@@ -87,7 +87,7 @@ reset.addEventListener("click", ()=>{
 })
 function openManyWindows(){
   for (let i=0;i<10;i++){
-    remindMe();
+    setTimeout(remindMe,remindMeIn*60*1000);
   }
 }
 submit.addEventListener('click',()=>{
