@@ -54,3 +54,10 @@ button:hover{
   text-align: left;
   display: none;
 }
+.afterTaskSubmit{
+  margin: 20px 0;
+}
+#close{
+  display: none;
+  margin: 10px auto;
+}

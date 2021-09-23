@@ -10,15 +10,16 @@ let shanghai= document.getElementById('Shanghai');
 let newyork= document.getElementById('NY');
 let reset= document.getElementById('reset');
 let submit = document.getElementById('submit');
+let close = document.getElementById('close');
+let submittedMessage = document.getElementById('submittedMessage');
 let place = "Shanghai";
-let maingoal="";let remindMeIn;
+let maingoal="";let remindMeIn;let myWindow="";
 
 setInterval(
   () => {
     let d = new Date();
     let chinaTime = d.toLocaleTimeString('en-US', { timeZone: 'Asia/Shanghai'});
     let chinaTimeInHours=parseInt(d.toLocaleTimeString('en-US', { timeZone: 'Asia/Shanghai',hour: '2-digit', hour12: false}),10);
-    console.log(chinaTimeInHours);
     let newyorkTime = d.toLocaleTimeString('en-US', { timeZone: 'America/New_York'});
     let newyorkTimeInHours=parseInt(d.toLocaleTimeString('en-US', { timeZone: 'America/New_York',hour: '2-digit', hour12: false}),10);
     // console.log(newyorkTimeInHours);
@@ -37,9 +38,9 @@ function changeMessage(hours){
   if (hours >= 6 && hours <12){
     goodMessage.innerHTML = "Good morning!";
     body.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.25),rgba(0, 0, 0, 0.25)),url('./assets/sky-background.png')";
-    // console.log('daytime');
+    console.log('daytime');
   }
-  else if (hours >= 12 && hours <6){
+  else if (hours >= 12 && hours <19){
     body.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('./assets/sky-background.png')";
     goodMessage.innerHTML = "Good afternoon!";
   }
@@ -54,7 +55,7 @@ function remindMe(){
   let y=Math.random()*(sh-popupheight);
   let specifications = "width="+popupwidth+",height="+popupheight+",left="+x+",top="+y;
   let ranTime= 1000 + Math.random()*1000;
-  let myWindow = window.open("", "", specifications);
+  myWindow = window.open("", "", specifications);
   myWindow.document.write("<h1>"+maingoal+"</h1>");
   // myWindow.addEventListener('load',()=>{
   //     setTimeout(()=>{myWindow.close();},remindMeIn*1000);
@@ -64,7 +65,6 @@ newyork.addEventListener("click", ()=>{
   place = "New York";
   showTimeZone.style.display="none";
   document.getElementsByClassName('tasks')[0].style.display='block';
-
   shanghai.style.display='none';
   reset.style.display='block';
   // openMoon();
@@ -80,14 +80,16 @@ shanghai.addEventListener("click", ()=>{
 reset.addEventListener("click", ()=>{
   showTimeZone.style.display="inline";
   document.getElementsByClassName('tasks')[0].style.display='none';
-
+  document.getElementById('task').value = "";
+  document.getElementById('remindMeIn').value = "";
+  submittedMessage.style.display="none";
   shanghai.style.display="inline";
   newyork.style.display="inline";
   reset.style.display="none";
 })
 function openManyWindows(){
   for (let i=0;i<10;i++){
-    setTimeout(remindMe,remindMeIn*60*1000);
+     manyReminders = setTimeout(remindMe,remindMeIn*60*1000)
   }
 }
 submit.addEventListener('click',()=>{
@@ -95,5 +97,6 @@ submit.addEventListener('click',()=>{
   remindMeIn = document.getElementById('remindMeIn').value;
   openManyWindows();
   document.getElementsByClassName('tasks')[0].style.display='none';
-  document.getElementsByClassName('container')[0].innerHTML += "Ok! Your goal is received!";
+  submittedMessage.style.display="inline";
+  submittedMessage.innerHTML += "Ok! Your goal is received!";
 })
