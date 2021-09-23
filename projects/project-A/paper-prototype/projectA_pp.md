@@ -1,4 +1,4 @@
-****Paper Prototype for Project A <br>
+Paper Prototype for Project A <br>
 temp title: drink your water
 
 This is a project best viewed on mobile devices.
