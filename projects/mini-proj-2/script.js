@@ -53,9 +53,10 @@ function changeMessage(hours){
 function remindMe(){
   let x=Math.random()*(sw-popupwidth);
   let y=Math.random()*(sh-popupheight);
+  let windowName = "hi hi hi hi hi hi look at meeeeee";
   let specifications = "width="+popupwidth+",height="+popupheight+",left="+x+",top="+y;
   let ranTime= 1000 + Math.random()*1000;
-  myWindow = window.open("", "", specifications);
+  myWindow = window.open("", windowName, specifications);
   myWindow.document.write("<h1>"+maingoal+"</h1>");
   // myWindow.addEventListener('load',()=>{
   //     setTimeout(()=>{myWindow.close();},remindMeIn*1000);

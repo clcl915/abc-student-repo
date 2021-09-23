@@ -1,0 +1,19 @@
+body{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#sprite-image {
+  height: 96px;
+  width: 96px;
+
+  background: url("../assets/dino-spritesheet-2.png")
+    0px 0px;
+  animation: play 0.8s steps(10) infinite;
+}
+@keyframes play {
+  100% {
+    background-position: -944px;
+  }
+}
