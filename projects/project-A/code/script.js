@@ -19,11 +19,13 @@ function detectDevice(){
 
 detectDevice()
 
+//has to connect with https
 if (window.DeviceOrientationEvent) {
   window.alert("yes");
   console.log("yes");
-  window.addEventListener('deviceorientation', deviceOrientationHandler, false);
-  mobileMessage.innerText = "Supported!";
+  // window.addEventListener('deviceorientation', deviceOrientationHandler, false);
+  window.addEventListener("deviceorientation", orientation, true);
+  mobileMessage.innerHTML = "Supported!";
 }
 
 function deviceOrientation(event) {
