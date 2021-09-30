@@ -32,10 +32,17 @@ if (orientation === "landscape-primary") {
   alert("The orientation API isn't supported in this browser :(");
 }
 
-window.addEventListener("touchmove", function(event){
+window.addEventListener("touchstart", function(event){
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
   document.getElementById("mobileMessage").innerHTML = x + ", " + y;
+  return false;
+});
+window.addEventListener("touchmove", function(event){
+  var x = event.touches[0].clientX;
+  var y = event.touches[0].clientY;
+  mainBody.css.top = x;
+  mainBody.css.left = y;
   return false;
 });
 
