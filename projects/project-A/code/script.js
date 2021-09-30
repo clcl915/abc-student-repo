@@ -24,10 +24,11 @@ if (window.DeviceOrientationEvent) {
   window.alert("yes");
   console.log("yes");
   // window.addEventListener('deviceorientation', deviceOrientationHandler, false);
-  window.addEventListener("deviceorientation", orientation, true);
+  window.addEventListener("deviceorientation", orientation);
   mobileMessage.innerHTML = "Supported!";
 }
 function orientation(event) {
+  event.preventDefault();
   mobileMessage.innerHTML += "this works";
   console.log("does this work");
   var x = event.beta;
