@@ -1,5 +1,6 @@
 let mobileMessage = document.getElementById('mobileMessage');
 let mainBody = document.getElementsByClassName('svgContainer')[0];
+let container= document.getElementsByClassName('container')[0];
 console.log(mainBody);
 // var orientation = screen.orientation;
 
@@ -9,7 +10,8 @@ function detectDevice(){
 
   //if user is on mobile
   if (!!navigator.maxTouchPoints){
-    mobileMessage.innerHTML += "This is best viewed on mobile screens!";
+    container.style.display="inline";
+    mobileMessage.innerHTML += "Move me anywhere!";
   }
   //if user is on desktop
   else{
@@ -21,36 +23,29 @@ function detectDevice(){
 
 detectDevice()
 
-var orientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation;
-
-if (orientation === "landscape-primary") {
-  alert("That looks good.");
-} else if (orientation === "landscape-secondary") {
-  alert("Mmmh... the screen is upside down!");
-} else if (orientation === "portrait-secondary" || orientation === "portrait-primary") {
-  alert("Mmmh... you should rotate your device to landscape");
-} else if (orientation === undefined) {
-  alert("The orientation API isn't supported in this browser :(");
-}
-document.getElementById('button').addEventListener('click', ()=>{
-  var x = event.touches[0].clientX;
-  var y = event.touches[0].clientY;
-  mainBody.style.position = 'absolute';
-  mainBody.style.left = x + 'px';
-  mainBody.style.top = y +'px' ;
-
-})
+// document.getElementById('button').addEventListener('click', ()=>{
+//   // var x = event.touches[0].clientX;
+//   // var y = event.touches[0].clientY;
+//   mainBody.style.position = 'absolute';
+//   mainBody.style.left = 0 + 'px';
+//   mainBody.style.top = 0 +'px' ;
+//
+// })
 window.addEventListener("touchstart", function(event){
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
+  mainBody.style.position = 'absolute';
+  mainBody.style.left = x/2 + 'px';
+  mainBody.style.top = y/2 +'px' ;
   document.getElementById("mobileMessage").innerHTML = x + ", " + y;
   return false;
 });
 window.addEventListener("touchmove", function(event){
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
-  mainBody.style.top = x;
-  mainBody.style.left = y;
+  mainBody.style.position = 'absolute';
+  mainBody.style.left = x/2 + 'px';
+  mainBody.style.top = y/2 +'px' ;
   return false;
 });
 

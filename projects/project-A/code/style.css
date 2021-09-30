@@ -6,6 +6,8 @@ body{
 .container{
   height: inherit;
   width: 100%;
+  display: none;
+  text-align: center;
 }
 .flex{
   display: flex;
