@@ -1,5 +1,6 @@
 let mobileMessage = document.getElementById('mobileMessage');
 
+
 function detectDevice(){
   console.log(!!navigator.maxTouchPoints)
   // mobileMessage.innerHTML += "This is best viewed on mobile screens!";
@@ -17,6 +18,13 @@ function detectDevice(){
 }
 
 detectDevice()
+
+if (window.DeviceOrientationEvent) {
+  window.alert("yes");
+  console.log("yes");
+  window.addEventListener('deviceorientation', deviceOrientationHandler, false);
+  mobileMessage.innerText = "Supported!";
+}
 
 function deviceOrientation(event) {
   mobileMessage.innerHTML += "This is working!";
