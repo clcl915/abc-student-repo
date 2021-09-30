@@ -32,10 +32,11 @@ if (orientation === "landscape-primary") {
   alert("The orientation API isn't supported in this browser :(");
 }
 
-mainBody.addEventListener("ontouchmove", (event)=>{
+mainBody.addEventListener("touchmove", (event)=>{
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
   document.getElementById("mobileMessage").innerHTML = x + ", " + y;
+  return false;
 })
 //has to connect with https
 // if (window.DeviceOrientationEvent) {
