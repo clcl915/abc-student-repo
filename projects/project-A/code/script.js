@@ -18,9 +18,8 @@ function detectDevice(){
 
 detectDevice()
 window.addEventListener('deviceorientation', function(event) {
-  console.log(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
+  alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
 });
-
 window.addEventListener("deviceorientation", function(event) {
   console.log(event.gamma);
 });
