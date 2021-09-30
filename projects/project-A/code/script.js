@@ -24,19 +24,22 @@ if (window.DeviceOrientationEvent) {
   window.alert("yes");
   console.log("yes");
   // window.addEventListener('deviceorientation', deviceOrientationHandler, false);
-  window.addEventListener("deviceorientation", orientationHandler, false);
+  window.addEventListener("deviceorientation", function(e){
+    handler(e);
+}, false);
   mobileMessage.innerHTML = "Supported!";
 }
-function orientationHandler(event) {
-  event.preventDefault();
+function handler(event) {
+  // event.preventDefault();
   mobileMessage.innerHTML += "this works";
   console.log("does this work");
   var x = event.beta;
   var y = event.gamma;
-  var width = window.outerWidth,
-        rot = event.gamma / 360,
-        left = ( width / 2 ) * rot;
-    mobileMessage.style.left = left + 'px';
+  var width = window.outerWidth;
+  var rot = event.gamma / 360;
+  var left = ( width / 2 ) * rot;
+  console.log(left);
+  mobileMessage.style.left = left + 'px';
   // $('.square').css({
   //   'top':x,
   //   'left': y
