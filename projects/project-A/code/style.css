@@ -3,12 +3,27 @@ body{
   width: 100vw;
   height:100vh;
 }
-.container{
+.container,.desktopAngry{
   height: inherit;
   width: 100%;
   display: none;
   text-align: center;
   flex-direction: column;
+}
+#emojicontainer{
+  height:70px;
+  width:70px;
+  /* animation-name: gettingAngry;
+  animation-duration: 60s;
+  animation-timing-function: steps(9); */
+  animation: gettingAngry 30s steps(9);
+  animation-fill-mode: forwards;
+}
+#goAwayText{
+  color: red;
+  display: block;
+  /* animation-delay: 30s */
+  animation:goAway 0.5s 27s linear infinite alternate both;
 }
 .flex{
   display: flex;
@@ -30,6 +45,57 @@ body{
 .svgContainer{
   width:30vw;
   margin: auto;
+}
+@keyframes gettingAngry {
+  0% {
+    background-image: url("assets/smiling-blushing-emoji.png");
+    background-repeat: no-repeat;
+  }
+  15% {
+    background-image: url("assets/smiling-blushing-emoji.png");
+    background-repeat: no-repeat;
+  }
+  25%{
+    background-image: url("assets/smiling-emoji.png");
+    background-repeat: no-repeat;
+  }
+  35%{
+    background-image: url("assets/slightly-smiling-emoji.png");
+    background-repeat: no-repeat;
+  }
+  45%{
+    background-image: url("assets/err-emoji.png");
+    background-repeat: no-repeat;
+  }
+  55%{
+    background-image: url("assets/err-emoji.png");
+    background-repeat: no-repeat;
+  }
+  65%{
+    background-image: url("assets/very-sad-emoji.png");
+    background-repeat: no-repeat;
+  }
+  80%{
+    background-image: url("assets/angry-emoji.png");
+    background-repeat: no-repeat;
+  }
+  90%{
+    background-image: url("assets/red-angry-emoji.png");
+    background-repeat: no-repeat;
+  }
+  95%{
+    background-image: url("assets/wth-emoji.png");
+    background-repeat: no-repeat;
+  }
+  100%{
+    background-image: url("assets/wth-emoji.png");
+    background-repeat: no-repeat;
+  }
+}
+@keyframes goAway {
+  from {
+    opacity: 0;
+  }
 }
 @media screen and (max-width: 700px){
   .svgContainer{

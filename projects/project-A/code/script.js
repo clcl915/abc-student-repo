@@ -1,6 +1,7 @@
 let mobileMessage = document.getElementById('mobileMessage');
 let mainBody = document.getElementsByClassName('svgContainer')[0];
 let container= document.getElementsByClassName('container')[0];
+let desktopAngry= document.getElementsByClassName('desktopAngry')[0];
 let middleX= mainBody.getBoundingClientRect().top;
 let middleY = mainBody.getBoundingClientRect().left;
 // console.log(middleX + "and" + middleY);
@@ -22,20 +23,17 @@ function detectDevice(){
   else{
     // mobileMessage.innerHTML += "Please view this on a mobile device!";
     window.alert("This is best viewed on mobile screens! \n Please view this on a mobile device");
+    showAngryFace();
   }
   // return !!navigator.maxTouchPoints ? 'mobile' : 'computer'
 }
 
 detectDevice()
 
-// document.getElementById('button').addEventListener('click', ()=>{
-//   // var x = event.touches[0].clientX;
-//   // var y = event.touches[0].clientY;
-//   mainBody.style.position = 'absolute';
-//   mainBody.style.left = 0 + 'px';
-//   mainBody.style.top = 0 +'px' ;
-//
-// })
+function showAngryFace(){
+  container.style.display="none";
+  desktopAngry.style.display="flex";
+}
 window.addEventListener("touchstart", function(event){
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
@@ -59,6 +57,37 @@ window.addEventListener("touchend", function(event){
   mainBody.style.left = middleY + 'px';
   return false;
 });
+
+setTimeout(function(){
+  console.log("still here");
+  window.removeEventListener("touchstart", function(event){
+    var x = event.touches[0].clientX;
+    var y = event.touches[0].clientY;
+    mainBody.style.position = 'absolute';
+    mainBody.style.left = x/2 + 'px';
+    mainBody.style.top = y/2 +'px' ;
+    document.getElementById("mobileMessage").innerHTML = x + ", " + y;
+    return false;
+  });
+  window.removeEventListener("touchmove", function(event){
+    var x = event.touches[0].clientX;
+    var y = event.touches[0].clientY;
+    mainBody.style.position = 'absolute';
+    mainBody.style.left = x/2 + 'px';
+    mainBody.style.top = y/2 +'px' ;
+    return false;
+  });
+  window.removeEventListener("touchend", function(event){
+    mainBody.style.position = 'absolute';
+    mainBody.style.top = middleX + 'px';
+    mainBody.style.left = middleY + 'px';
+    return false;
+  });
+    mobileMessage.innerHTML = 'Hahaha';
+    mobileMessage.innerHTML += "\n I'm still here";
+}, 8000);
+
+
 //has to connect with https
 // if (window.DeviceOrientationEvent) {
 //   window.alert("yes");
