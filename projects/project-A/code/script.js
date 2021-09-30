@@ -1,5 +1,6 @@
 let mobileMessage = document.getElementById('mobileMessage');
-var orientation = screen.orientation;
+let mainBody = document.getElementsByClassName('svgContainer')[0];
+// var orientation = screen.orientation;
 
 function detectDevice(){
   console.log(!!navigator.maxTouchPoints)
@@ -31,7 +32,11 @@ if (orientation === "landscape-primary") {
   alert("The orientation API isn't supported in this browser :(");
 }
 
-
+mainBody.addEventListener("ontouchmove", (event)=>{
+  var x = event.touches[0].clientX;
+  var y = event.touches[0].clientY;
+  document.getElementById("mobileMessage").innerHTML = x + ", " + y;
+})
 //has to connect with https
 // if (window.DeviceOrientationEvent) {
 //   window.alert("yes");
