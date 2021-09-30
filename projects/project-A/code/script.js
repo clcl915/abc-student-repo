@@ -26,7 +26,7 @@ if (window.DeviceOrientationEvent) {
   // window.addEventListener('deviceorientation', deviceOrientationHandler, false);
   window.addEventListener("deviceorientation", function(e){
     handler(e);
-}, false);
+}, true);
   mobileMessage.innerHTML = "Supported!";
   document.getElementsByClassName('square')[0].style.backgroundColor="green";
 }
