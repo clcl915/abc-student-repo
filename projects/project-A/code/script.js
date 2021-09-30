@@ -31,10 +31,11 @@ function orientation(event) {
   var x = event.beta;
   var y = event.gamma;
 
-  $('.mobileMessage').css({
+  $('.square').css({
     'top':x,
     'left': y
   });
+
 }
 // function deviceOrientation(event) {
 //   mobileMessage.innerHTML += "This is working!";
