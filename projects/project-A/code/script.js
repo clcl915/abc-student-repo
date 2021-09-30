@@ -17,12 +17,14 @@ function detectDevice(){
 }
 
 detectDevice()
-window.addEventListener('deviceorientation', function(event) {
+
+function deviceOrientation(event) {
+  mobileMessage.innerHTML += "This is working!";
   alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
-});
-window.addEventListener("deviceorientation", function(event) {
-  console.log(event.gamma);
-});
+  window.removeEventListener('deviceorientation', deviceOrientation);
+  mobileMessage.innerHTML += "This is still working!";
+}
+window.addEventListener('deviceorientation', deviceOrientation);
 
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
