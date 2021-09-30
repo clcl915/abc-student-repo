@@ -92,7 +92,7 @@ setTimeout(function(){
   mainBody.parentNode.replaceChild(bodyClone,mainBody);
   var afterText = mobileMessage.cloneNode(true);
   mobileMessage.parentNode.replaceChild(afterText,mobileMessage);
-  afterText.innerHTML = "hahaha <br> I'm still here <br> Let's keep playing <br> REFRESH ME!";
+  afterText.innerHTML = "hahaha <br> I'm still here <br> This is fun <br> Let's keep playing <br> REFRESH ME!";
 
 }, 8000);
 
