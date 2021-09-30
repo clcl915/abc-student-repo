@@ -40,7 +40,7 @@ window.addEventListener("touchstart", function(event){
   mainBody.style.position = 'absolute';
   mainBody.style.left = x/2 + 'px';
   mainBody.style.top = y/2 +'px' ;
-  document.getElementById("mobileMessage").innerHTML = x + ", " + y;
+  document.getElementById("mobileMessage").innerHTML ="Oh I'm moving to here" x + ", " + y;
   return false;
 });
 window.addEventListener("touchmove", function(event){
@@ -55,6 +55,7 @@ window.addEventListener("touchend", function(event){
   mainBody.style.position = 'absolute';
   mainBody.style.top = middleX + 'px';
   mainBody.style.left = middleY + 'px';
+  document.getElementById("mobileMessage").innerHTML ="And I'm back";
   return false;
 });
 

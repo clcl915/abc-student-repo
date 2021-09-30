@@ -51,6 +51,7 @@ body{
   text-align: left;
   display: flex;
   flex-direction: row;
+  gap:20%;
 }
 a{
   color:inherit;
@@ -63,8 +64,8 @@ ul{
   color: #ff887c;
   font-weight: bold;
   display: inline-block;
-  width: 1em;
-  margin-left: -1em;
+  width: 1.3em;
+  margin-left: -1.3em;
 }
 
 #largeProjects li::before {
@@ -72,6 +73,44 @@ ul{
   color:#FCCD81;
   font-weight: bold;
   display: inline-block;
-  width: 1em;
-  margin-left: -1em;
+  width: 1.3em;
+  margin-left: -1.3em;
+}
+#miniProjects li:first-child::before {
+  content: "\2744";
+  color: #99FFFF;
+  font-weight: bold;
+  display: inline-block;
+  width: 1.3em;
+  margin-left: -1.3em;
+}
+#miniProjects li:nth-child(2)::before {
+  content: "\1F4DD";
+  color: #99FFFF;
+  font-weight: bold;
+  display: inline-block;
+  width: 1.3em;
+  margin-left: -1.3em;
+}
+#miniProjects li:nth-child(3)::before {
+  content: "\1F995";
+  color: #99FFFF;
+  font-weight: bold;
+  display: inline-block;
+  width: 1.3em;
+  margin-left: -1.3em;
+}
+#largeProjects li:first-child::before {
+  content: "\270B";
+  color:#FCCD81;
+  font-weight: bold;
+  display: inline-block;
+  width: 1.3em;
+  margin-left: -1.3em;
+}
+
+@media screen and (max-width: 700px){
+  .projects{
+    flex-direction: column;
+  }
 }

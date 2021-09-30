@@ -2,6 +2,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 body{
   width: 100vw;
   height:100vh;
+  background-color: #5C5EF7;
 }
 .container,.desktopAngry{
   height: inherit;
