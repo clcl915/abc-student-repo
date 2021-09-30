@@ -17,7 +17,7 @@ function detectDevice(){
   //if user is on mobile
   if (!!navigator.maxTouchPoints){
     container.style.display="flex";
-    mobileMessage.innerHTML += "Try to move me off the screen!";
+    mobileMessage.innerHTML += "Try to move me <br>off the screen!";
   }
   //if user is on desktop
   else{
@@ -34,58 +34,66 @@ function showAngryFace(){
   container.style.display="none";
   desktopAngry.style.display="flex";
 }
-window.addEventListener("touchstart", function(event){
+window.addEventListener("touchstart", function moveBody(event){
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
   mainBody.style.position = 'absolute';
   mainBody.style.left = x/2 + 'px';
   mainBody.style.top = y/2 +'px' ;
-  document.getElementById("mobileMessage").innerHTML ="Oh I'm moving to here" x + ", " + y;
+  mobileMessage.innerHTML = "Oh you're moving me to : "+  x + ", " + y;
   return false;
 });
-window.addEventListener("touchmove", function(event){
+window.addEventListener("touchmove", function moveBody(event){
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
   mainBody.style.position = 'absolute';
   mainBody.style.left = x/2 + 'px';
   mainBody.style.top = y/2 +'px' ;
+  mobileMessage.innerHTML = "Oh you're moving me to : " + x + ", " + y;
   return false;
 });
-window.addEventListener("touchend", function(event){
+window.addEventListener("touchend", function goback(event){
   mainBody.style.position = 'absolute';
   mainBody.style.top = middleX + 'px';
   mainBody.style.left = middleY + 'px';
-  document.getElementById("mobileMessage").innerHTML ="And I'm back";
+  mobileMessage.innerHTML = "and I'm back <br> haha";
   return false;
 });
 
 setTimeout(function(){
   console.log("still here");
-  window.removeEventListener("touchstart", function(event){
-    var x = event.touches[0].clientX;
-    var y = event.touches[0].clientY;
-    mainBody.style.position = 'absolute';
-    mainBody.style.left = x/2 + 'px';
-    mainBody.style.top = y/2 +'px' ;
-    document.getElementById("mobileMessage").innerHTML = x + ", " + y;
-    return false;
-  });
-  window.removeEventListener("touchmove", function(event){
-    var x = event.touches[0].clientX;
-    var y = event.touches[0].clientY;
-    mainBody.style.position = 'absolute';
-    mainBody.style.left = x/2 + 'px';
-    mainBody.style.top = y/2 +'px' ;
-    return false;
-  });
-  window.removeEventListener("touchend", function(event){
-    mainBody.style.position = 'absolute';
-    mainBody.style.top = middleX + 'px';
-    mainBody.style.left = middleY + 'px';
-    return false;
-  });
-    mobileMessage.innerHTML = 'Hahaha';
-    mobileMessage.innerHTML += "\n I'm still here";
+  // window.removeEventListener("touchstart", function(event){
+  //   var x = event.touches[0].clientX;
+  //   var y = event.touches[0].clientY;
+  //   mainBody.style.position = 'absolute';
+  //   mainBody.style.left = x/2 + 'px';
+  //   mainBody.style.top = y/2 +'px' ;
+  //   document.getElementById("mobileMessage").innerHTML = x + ", " + y;
+  //   return false;
+  // });
+  // window.removeEventListener("touchmove", function(event){
+  //   var x = event.touches[0].clientX;
+  //   var y = event.touches[0].clientY;
+  //   mainBody.style.position = 'absolute';
+  //   mainBody.style.left = x/2 + 'px';
+  //   mainBody.style.top = y/2 +'px' ;
+  //   return false;
+  // });
+  // window.removeEventListener("touchend", function(event){
+  //   mainBody.style.position = 'absolute';
+  //   mainBody.style.top = middleX + 'px';
+  //   mainBody.style.left = middleY + 'px';
+  //   return false;
+  // });
+  mainBody.style.position = 'absolute';
+  mainBody.style.top = middleX + 'px';
+  mainBody.style.left = middleY + 'px';
+  var bodyClone = mainBody.cloneNode(true);
+  mainBody.parentNode.replaceChild(bodyClone,mainBody);
+  var afterText = mobileMessage.cloneNode(true);
+  mobileMessage.parentNode.replaceChild(afterText,mobileMessage);
+  afterText.innerHTML = 'Hahaha';
+  afterText.innerHTML += "\n I'm still here";
 }, 8000);
 
 

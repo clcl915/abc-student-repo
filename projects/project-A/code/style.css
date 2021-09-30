@@ -42,6 +42,7 @@ body{
 #mobileMessage{
   position: absolute;
   font-size: 10px;
+  color:white;
 }
 .svgContainer{
   width:30vw;
