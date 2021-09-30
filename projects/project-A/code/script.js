@@ -31,6 +31,7 @@ if (window.DeviceOrientationEvent) {
 }
 function handler(event) {
   // event.preventDefault();
+  mobileMessage.style.color="green";
   mobileMessage.innerHTML += "this works";
   console.log("does this work");
   var x = event.beta;
