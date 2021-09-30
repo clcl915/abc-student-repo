@@ -1,5 +1,6 @@
 let mobileMessage = document.getElementById('mobileMessage');
 let mainBody = document.getElementsByClassName('svgContainer')[0];
+console.log(mainBody);
 // var orientation = screen.orientation;
 
 function detectDevice(){
@@ -31,7 +32,14 @@ if (orientation === "landscape-primary") {
 } else if (orientation === undefined) {
   alert("The orientation API isn't supported in this browser :(");
 }
+document.getElementById('button').addEventListener('click', ()=>{
+  var x = event.touches[0].clientX;
+  var y = event.touches[0].clientY;
+  mainBody.style.position = 'absolute';
+  mainBody.style.left = x + 'px';
+  mainBody.style.top = y +'px' ;
 
+})
 window.addEventListener("touchstart", function(event){
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
@@ -41,8 +49,8 @@ window.addEventListener("touchstart", function(event){
 window.addEventListener("touchmove", function(event){
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
-  mainBody.css.top = x;
-  mainBody.css.left = y;
+  mainBody.style.top = x;
+  mainBody.style.left = y;
   return false;
 });
 
