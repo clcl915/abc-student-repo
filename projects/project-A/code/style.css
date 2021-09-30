@@ -19,3 +19,8 @@
 .svgContainer{
   width:30vw;
 }
+@media screen and (max-width: 700px){
+  .svgContainer{
+    width:50vw;
+  }
+}
