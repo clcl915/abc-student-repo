@@ -1,6 +1,11 @@
 let mobileMessage = document.getElementById('mobileMessage');
 let mainBody = document.getElementsByClassName('svgContainer')[0];
 let container= document.getElementsByClassName('container')[0];
+let middleX= mainBody.getBoundingClientRect().top;
+let middleY = mainBody.getBoundingClientRect().left;
+// console.log(middleX + "and" + middleY);
+
+
 console.log(mainBody);
 // var orientation = screen.orientation;
 
@@ -10,8 +15,8 @@ function detectDevice(){
 
   //if user is on mobile
   if (!!navigator.maxTouchPoints){
-    container.style.display="inline";
-    mobileMessage.innerHTML += "Move me anywhere!";
+    container.style.display="flex";
+    mobileMessage.innerHTML += "Try to move me off the screen!";
   }
   //if user is on desktop
   else{
@@ -48,7 +53,12 @@ window.addEventListener("touchmove", function(event){
   mainBody.style.top = y/2 +'px' ;
   return false;
 });
-
+window.addEventListener("touchend", function(event){
+  mainBody.style.position = 'absolute';
+  mainBody.style.top = middleX + 'px';
+  mainBody.style.left = middleY + 'px';
+  return false;
+});
 //has to connect with https
 // if (window.DeviceOrientationEvent) {
 //   window.alert("yes");
