@@ -28,6 +28,8 @@ if (window.DeviceOrientationEvent) {
   mobileMessage.innerHTML = "Supported!";
 }
 function orientation(event) {
+  mobileMessage.innerHTML += "this works";
+  console.log("does this work");
   var x = event.beta;
   var y = event.gamma;
 
