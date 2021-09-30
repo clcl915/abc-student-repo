@@ -28,7 +28,7 @@ if (window.DeviceOrientationEvent) {
     handler(e);
 }, false);
   mobileMessage.innerHTML = "Supported!";
-  document.getElementsByClassName('square').backgroundColor="green";
+  document.getElementsByClassName('square')[0].style.backgroundColor="green";
 }
 function handler(event) {
   // event.preventDefault();
