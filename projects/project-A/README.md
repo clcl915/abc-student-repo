@@ -1,8 +1,13 @@
 # Mobile Me ✋
+<center>
+<img src="./code/assets/abc-projectA-desktop-recording.gif">
+</center>
 
-![desktop](./code/assets/abc-projectA-desktop-recording.gif)
 
-![mobile](./code/assets/abc-projectA-mobile-recording.gif)
+<center>
+<img src="./code/assets/abc-projectA-mobile-recording.gif" width="50%">
+</center>
+
 
 ## Project Concept
 
