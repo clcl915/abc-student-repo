@@ -1,12 +1,9 @@
 # Mobile Me ✋
-<center>
-<img src="./code/assets/abc-projectA-desktop-recording.gif">
-</center>
+<p align="center">
+<img src="./code/assets/abc-projectA-desktop-recording.gif" style="align:center"></p>
 
-
-<center>
-<img src="./code/assets/abc-projectA-mobile-recording.gif" width="50%">
-</center>
+<p align="center">
+<img src="./code/assets/abc-projectA-mobile-recording.gif" width="50%" ></p>
 
 
 ## Project Concept
@@ -34,8 +31,9 @@ By having the focus on mobile, I had to first make sure I directed users to mobi
 
 ### Desktop
 For the Desktop version, I wanted this to be an additional feature to the project. So, I first included an alert that informs the user to switch a mobile device to view this project. After the user closes the popup, I decided to add a CSS animation of emojis turning from happy to angry. The animation kind of looks like the faces are warping togther with each transition. It wasn't intentional but I think it was actually really nice. At the end, I also choose to add a "GO AWAY" message to annoy the user that they just watched the whole animation for nothing.
-
-<div style="display:flex;justify-content:space-evenly;"><img src="code/assets/smiling-blushing-emoji.png" width="30px"><img src="code/assets/smiling-emoji.png" width="30px"><img src="code/assets/slightly-smiling-emoji.png" width="30px"><img src="code/assets/err-emoji.png" width="30px"><img src="code/assets/very-sad-emoji.png" width="30px"><img src="code/assets/angry-emoji.png" width="30px"><img src="code/assets/red-angry-emoji.png" width="30px"><img src="code/assets/wth-emoji.png" width="30px"></div>
+<center>
+<p align="center">
+<div style="display:flex;justify-content:space-evenly;"><img src="code/assets/smiling-blushing-emoji.png" width="30px"><img src="code/assets/smiling-emoji.png" width="30px"><img src="code/assets/slightly-smiling-emoji.png" width="30px"><img src="code/assets/err-emoji.png" width="30px"><img src="code/assets/very-sad-emoji.png" width="30px"><img src="code/assets/angry-emoji.png" width="30px"><img src="code/assets/red-angry-emoji.png" width="30px"><img src="code/assets/wth-emoji.png" width="30px"></div></center></p>
 
 
 ### Mobile
@@ -46,8 +44,8 @@ I purposely added these messages that hinted that this body was mocking or teasi
 #### Mobile Design
 To quickly highlight on the design of the assets, I used a SVG for the outlined body and did a quick edit in Illustrator. I originally had a more realistic body, but up again the background looks too much like a crime sense. So, I changed it to a gingerbread man outline to add the effect of a cute tiny little friend.
 
-<center>
-<img src="code/assets/gingerbread_man_outline_1.svg" width="40%"></center>
+<p align="center">
+<img src="code/assets/gingerbread_man_outline_1.svg" width="40%"></p>
 
 ## Quick Access
 This website can be viewed [here](https://clcl915.github.io/abc-student-repo/projects/project-A/code/index.html).
