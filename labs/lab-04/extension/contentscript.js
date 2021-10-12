@@ -9,14 +9,21 @@ function repl(find, replace){
   // e.g. repl("Moon", "Potato")
   document.body.innerHTML = document.body.innerHTML.replace(finder, replace);
 }
-function gotMesage(request, sender, sendResponse){
-  console.log("got message")
-  let findWord= request.find;
-  let replaceWord=request.replace;
-  repl(findWord,replaceWord);
-}
-chrome.runtime.onMessage.addListener(gotMessage);
+function gotMessage(request, sender, sendResponse){
+  // request includes the actual message
+  console.log(request);
 
+  // use our replacement function to replace words as instructed by the popup page
+  repl(request.find, request.replace)
+
+  // sender lets us know who the message is fro (ie from our popup page)
+  // sendResponse is a function and allows us to reply to the sender (our popup page)
+  // sendResponse({message: "successfully replaced words!"});
+
+}
+
+// listening for messages:
+chrome.runtime.onMessage.addListener(gotMessage);
 // setTimeout(()=>{
 //   console.log("replacing");
 //   repl("Pelosi","Leon");

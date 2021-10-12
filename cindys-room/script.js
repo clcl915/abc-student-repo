@@ -5,6 +5,3 @@ let miniProj1 = document.getElementById('miniProj1');
 aboutMe.addEventListener("click", ()=>{
   aboutMePopUp.classList.toggle('hidden');
 })
-aboutMe.addEventListener("click", ()=>{
-  aboutMePopUp.classList.toggle('hidden');
-})
