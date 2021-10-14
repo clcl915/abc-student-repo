@@ -12,4 +12,6 @@ The chrome extension will be an empire that grows with you as you are being prod
 
 I really like the Forest app's concept of planting trees and at the same time actually planting trees in real life. The use of a tree that grows and grows and provides back to the world is such an amazing focus, but I want to give a twist on it. As for what exactly my organism is going to be, I still haven't got to a concrete answer but I'm thinking more of characters like in games like Polytopia, Pokemon, and Plants vs. Zombies. But, maybe the underlying message of this extension can be like a game. You have to give up playing games to do work, but what if you can play a game while you do work!
 
+![prototype](abc-proj-b-prototype-visual.png)
+
 ![prototype](abc-proj-b-prototype.png)
