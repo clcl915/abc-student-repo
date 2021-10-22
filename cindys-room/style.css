@@ -108,6 +108,14 @@ ul{
   width: 1.3em;
   margin-left: -1.3em;
 }
+#miniProjects li:nth-child(5)::before {
+  content: " \10084";
+  color: #99FFFF;
+  font-weight: bold;
+  display: inline-block;
+  width: 1.3em;
+  margin-left: -1.3em;
+}
 #largeProjects li:first-child::before {
   content: "\270B";
   color:#FCCD81;
