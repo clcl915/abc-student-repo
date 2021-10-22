@@ -1,0 +1,34 @@
+{
+  "name": "Your Warm Reminder",
+  "description": "Reminding you to take a break",
+  "version": "1.0",
+  "manifest_version": 2,
+  "background":{
+    "scripts":["background.js"],
+    "persistent": false
+  },
+  "permissions":[
+    "activeTab",
+    "idle",
+    "notifications"
+  ],
+  "web_accessible_resources": [
+       "heart.png","images/idle-cat-sticker.jpg","images/active-cat-sticker.jpg"
+   ],
+  "content_scripts":[
+    {
+    "matches":["<all_urls>"],
+    "exclude_matches": [
+      "https://www.netflix.com/",
+      "https://www.youtube.com/",
+      "https://www.bilibili.com/"
+    ],
+    "js":["contentscript.js"],
+    "css":["style.css"]
+    }
+  ],
+  "browser_action":{
+    "default_icon":"heart.png",
+    "default_popup":"popup/popup.html"
+  }
+}

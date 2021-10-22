@@ -1,0 +1,15 @@
+.container{
+  display: grid;
+  color:white;
+  grid-template-columns: auto auto;
+  width:150px;
+  height:150px;
+  margin: 0;
+}
+.block{
+  /* border:1px solid black; */
+  /* grass tile */
+  background-image: url("https://64.media.tumblr.com/5310eb96570ee4e51acae3ae0f57fd2e/9e54f617e5091267-f4/s540x810/cac009e7c086af567dc76a7690b8c4731d3b70d9.png");
+}
+
+/* classes with different background-images  */
