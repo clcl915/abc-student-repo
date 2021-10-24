@@ -19,9 +19,9 @@
     {
     "matches":["<all_urls>"],
     "exclude_matches": [
-      "https://www.netflix.com/",
-      "https://www.youtube.com/",
-      "https://www.bilibili.com/"
+      "https://www.netflix.com/*",
+      "https://www.youtube.com/*",
+      "https://www.bilibili.com/*"
     ],
     "js":["contentscript.js"],
     "css":["style.css"]

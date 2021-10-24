@@ -109,8 +109,7 @@ ul{
   margin-left: -1.3em;
 }
 #miniProjects li:nth-child(5)::before {
-  content: " \10084";
-  color: #99FFFF;
+  content: "\2764";
   font-weight: bold;
   display: inline-block;
   width: 1.3em;

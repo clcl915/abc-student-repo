@@ -1,9 +1,11 @@
-
+chrome.notifications.getPermissionLevel((status)=>{
+  console.log("status is "+ status);
+});
 var today = new Date();
 var time = parseInt(today.getHours());
 console.log(time);
-chrome.idle.setDetectionInterval(60);
-let state;
+// if idle for 2 minutes then create idle notification
+chrome.idle.setDetectionInterval(120);
 chrome.idle.onStateChanged.addListener((newState)=>{
   console.log("STATE CHANGED", newState);
   let message = {type: newState}
@@ -15,16 +17,18 @@ chrome.idle.onStateChanged.addListener((newState)=>{
       title: '你在干嘛呢?',
       message: 'Watcha doing?',
       iconUrl: 'images/idle-cat-sticker.jpg',
+      requireInteraction: true,
       type: 'basic'
     });
     console.log("sent");
   }
+  chrome.notifications.onClicked.addListener(()=>{this.close()});
 })
 
 if (time >=6 && time <=12){
   chrome.notifications.create('', {
     title: 'Good morning!',
-    message: 'Hope you have a good day! Grab some coffee',
+    message: 'Hope you have a good day! Grab some morning coffee!',
     iconUrl: 'heart.png',
     type: 'basic'
   });
@@ -32,7 +36,7 @@ if (time >=6 && time <=12){
 else if (time >=17 || time <=3){
   chrome.notifications.create('', {
     title: 'Good evening!',
-    message: 'Make sure to sleep early today 不不!',
+    message: 'Make sure to sleep early today!',
     iconUrl: 'heart.png',
     type: 'basic'
   });
