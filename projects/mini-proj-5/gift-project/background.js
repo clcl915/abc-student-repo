@@ -25,7 +25,7 @@ chrome.idle.onStateChanged.addListener((newState)=>{
   chrome.notifications.onClicked.addListener(()=>{this.close()});
 })
 
-if (time >=6 && time <=12){
+if (time >=6 && time <12){
   chrome.notifications.create('', {
     title: 'Good morning!',
     message: 'Hope you have a good day! Grab some morning coffee!',
