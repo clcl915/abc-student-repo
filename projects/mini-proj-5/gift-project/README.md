@@ -1,12 +1,11 @@
 # mini proj 5
 
 A browser extension as a gift for my bf
+<center>
+<img width="40%" src="images/good-afternoon-message.png">
 
-<img width="100%" src="images/good-afternoon-message.png">
-
-
-<img width="100%" src="images/good-evening-message.png">
-
+<img width="40%" src="images/good-evening-message.png">
+</center>
 
 For this project, it took me a while to figure out what exactly I wanted to create. I wanted to create something personal, sweet, and something that he will actually use.
 
@@ -23,4 +22,6 @@ There are 4 messages in total. 3 different messages are displayed throughout the
 
 I ran into a lot of troubles trying to get my notifications to popup. One of which was with my own computer blocking notifications from chrome.
 
-<img width="100%" src="images/mac-chrome-notifications-off.png">
+<center>
+<img width="40%" src="images/mac-chrome-notifications-off.png">
+</center>
