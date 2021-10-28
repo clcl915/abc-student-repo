@@ -123,7 +123,14 @@ ul{
   width: 1.3em;
   margin-left: -1.3em;
 }
-
+#largeProjects li:nth-child(2)::before {
+  content: "\1f3e0";
+  color:#FCCD81;
+  font-weight: bold;
+  display: inline-block;
+  width: 1.3em;
+  margin-left: -1.3em;
+}
 @media screen and (max-width: 700px){
   .projects{
     flex-direction: column;
