@@ -3,18 +3,55 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <!-- Background 4 Tiles -->
     <div class="container">
-        <div class="block">
-            <p id="count">Counter</p>
-            <button type="button" id="button">Count Up</button>
+        <div class="block 1"></div>
+        <div class="block 2">
+          <div class="house hidden"></div>
         </div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
+        <div class="block 3"></div>
+        <div class="block 4">
+          <div class="pigoverlay hidden"></div>
+        </div>
     </div>
+    <!-- Intro Messages -->
+    <div class="ontop">
+      <div class="messageCommands">
+        <div class="idle"></div>
+        <div id="popupMessage" class="hidden">
+          <p>Hi there! <br> Welcome to your virtual home!</p>
+        </div>
+        <div class="next hidden">NEXT ></div>
+        <div class="confirmGame hidden">
+          <div class="yes hidden">YES</div>
+          <div class="no hidden">NO</div>
+      </div>
+      <div class="selectTasks hidden">
+        <div id="farm">
+          <p>15 MINS</p>
+          <p>FARM 🐖</p>
+        </div>
+        <div id="garden">
+          <p>30 MINS</p>
+          <p>GARDEN 🌻 </p>
+        </div>
+        <div id="build">
+          <p>1 HOUR</p>
+          <p>BUILD 🏠 </p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    </div>
+
     <script type="text/javascript" src="script.js">
   </script>
   </body>

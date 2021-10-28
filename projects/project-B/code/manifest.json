@@ -1,11 +1,8 @@
 {
-  "name": "Home",
+  "name": "Prodo Home",
   "description": "Build your home by being productive",
   "version": "1.0",
   "manifest_version": 2,
-  "permissions":[
-    "activeTab"
-  ],
   "background":{
     "scripts":["background.js"]
   },
@@ -16,8 +13,11 @@
     }
   ],
   "permissions":[
-    "storage"
+    "alarms","activeTab","idle","notifications","storage","tabs"
   ],
+  "web_accessible_resources": [
+       "house.png"
+   ],
   "browser_action":{
     "default_icon":"house.png",
     "default_popup":"popup/popup.html"
