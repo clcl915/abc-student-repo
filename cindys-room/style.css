@@ -124,7 +124,7 @@ ul{
   margin-left: -1.3em;
 }
 #largeProjects li:nth-child(2)::before {
-  content: "\1f3e0";
+  content: "\1F3E0";
   color:#FCCD81;
   font-weight: bold;
   display: inline-block;
