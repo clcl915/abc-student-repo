@@ -55,9 +55,9 @@ function handleMessage(request, sender, sendResponse){
     //15mins
     let taskfailed= false;
     console.log("the user is farming");
-    chrome.alarms.create("1min", {
-      delayInMinutes: 1,
-      periodInMinutes: 1
+    chrome.alarms.create("15min", {
+      delayInMinutes: 15,
+      periodInMinutes: 15
     });
     // sendResponse(localIntroStatus);
   }
@@ -66,8 +66,8 @@ function handleMessage(request, sender, sendResponse){
     let taskfailed= false;
     console.log("the user is gardening");
     chrome.alarms.create("30min", {
-      delayInMinutes: 1,
-      periodInMinutes: 1
+      delayInMinutes: 30,
+      periodInMinutes: 30
     });
     // sendResponse(localIntroStatus);
   }
@@ -76,8 +76,8 @@ function handleMessage(request, sender, sendResponse){
     let taskfailed= false;
     console.log("the user is building");
     chrome.alarms.create("1hr", {
-      delayInMinutes: 1,
-      periodInMinutes: 1
+      delayInMinutes: 60,
+      periodInMinutes: 60
     });
     // sendResponse(localIntroStatus);
   }
@@ -114,7 +114,7 @@ chrome.idle.onStateChanged.addListener((newState)=>{
     taskfailed = true;
     chrome.notifications.create('', {
       title: 'PRODO HOME',
-      message: 'Task failed! You opened a new tab :( \n Open your prodo home',
+      message: 'Task failed! You were idle for too long :( \n Open your prodo home',
       iconUrl: 'house.png',
       type: 'basic'
     });
@@ -122,7 +122,7 @@ chrome.idle.onStateChanged.addListener((newState)=>{
   }
 })
 chrome.alarms.onAlarm.addListener(function(alarm) {
-  if (alarm.name === "1min") {
+  if (alarm.name === "15min") {
     if (taskfailed != true){
       console.log("been a minute");
       chrome.notifications.create('', {
