@@ -11,7 +11,7 @@ Keep yourself accountable with your work by playing Prodo Home while you work. T
 
 <br>
 <p align="center">
-<button onclick="https://github.com/clcl915/abc-student-repo/blob/master/projects/project-B/code.zip" style="border-radius:20px;padding:15px;text-align:center;background-image:url('https://64.media.tumblr.com/5310eb96570ee4e51acae3ae0f57fd2e/9e54f617e5091267-f4/s540x810/cac009e7c086af567dc76a7690b8c4731d3b70d9.png');color:white;font-weight:700">DOWNLOAD PRODO HOME HERE</button></p>
+<button onclick="https://github.com/clcl915/abc-student-repo/blob/master/projects/project-B/code.zip" style="border-radius:20px;padding:15px;text-align:center;background:green;color:white;font-weight:700">DOWNLOAD PRODO HOME HERE</button></p>
 
 <hr>
 <br>
