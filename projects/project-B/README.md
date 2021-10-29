@@ -9,10 +9,9 @@ Keep yourself accountable with your work by playing Prodo Home while you work. T
 <p align="center">
 <img src="./code/start.gif" style="align:center"></p>
 
-![start](code/start.gif)
-
-
+<br>
 <hr>
+<br>
 
 For this extension, the main APIs used was chrome.alarms, chrome.notifications, chrome.storage, and chrome.idle.
 These APIs were utilized to detect the user's movement in the browser. So, after the user selects a task or time interval they want to be productive, a chrome.alarm will start.
@@ -31,6 +30,5 @@ The home has been updated with the help of your work and your little helpers in 
 
 <p align="center">
 <img src="./code/success.gif" style="align:center"></p>
-![start](code/success.gif)
 
 Chrome.storage was used to detect different stages of the game and used to display different elements based on storage. I definitely ran into a lot of challenges with the local storage and then communicating between the background script and the popup script. I had the most trouble trying to implementing the storage when the browser gets restarted. But, as the current version with no further levels, I think having the home restart every time your browser restarts is a good point of pause (for now! more updates to come).
