@@ -6,6 +6,11 @@
   "background":{
     "scripts":["background.js"]
   },
+  "icons": {
+    "16": "house-16.png",
+    "48": "house-48.png",
+    "128": "house-128.png"
+  },
   "content_scripts":[
     {
     "matches":["<all_urls>"],
