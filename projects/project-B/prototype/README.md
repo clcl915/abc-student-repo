@@ -1,4 +1,4 @@
-# Parasite Project
+# Parasite Project - Prototype
 
 A parasite is an organism that lives in/on another organism. I took the concept of a parasite living on another organism and shifted it an organism living "with" another organism. So, I wanted this chrome extension to live and be in the web space that the user is present in too. With that idea in mind, I headed towards the productivity route and drew inspiration from the Forest mobile app where the user can grow their own trees when focusing.
 
