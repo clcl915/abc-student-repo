@@ -19,4 +19,4 @@ setInterval(()=>{
       console.log("got data", data);
       counter.innerHTML = data.value;
     })
-}, 200)
+}, 2000)
