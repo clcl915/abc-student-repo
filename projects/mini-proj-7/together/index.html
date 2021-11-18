@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket Hackathon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <script src="https://almondine-gusty-tulip.glitch.me/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div class="container flex">
+      <div class="wrapper flex">
+        <div class="chatwrapper">
+          <h2>WELCOME</h2>
+          <p>Let's get some information from you.</p>
+          <div class="namebox">
+            <p>Who are you? <br/> <input autocomplete="off" type="text" id="name" placeholder="...?"/></p>
+          </div>
+          <div class="inputcolorbox">
+            <p>Input a color: <br/> <input autocomplete="off" type="text" id="userColor" placeholder="green?"/></p>
+          </div>
+          <button type="button" id="submitUser" name="button">SUBMIT</button>
+        </div>
+      </div>
+      <!-- <div class="controls flex">
+        <button type="button" id="allbutme" name="button">ALL BUT ME</button>
+        <button type="button" id="all" name="button">ALL</button>
+        <button type="button" id="randomSingle" name="button">RANDOM SINGLE</button>
+      </div>
+      <div id="buttonOutput">
+
+      </div> -->
+      <p>Num of players: <span id="numCountText"></span><br/>Input below to add more colors</p>
+      <div class="inputArea flex">
+        <input type="text" name="" id="textinput" value="">
+        <button type="button" id="sendText" name="button">SEND</button>
+      </div>
+      <div id="textBox"><span id="whichUser"></span> added: <span id="inputtedcolor"></span></div>
+    </div>
+    <script src="script.js"></script>
+
+  </body>
+</html>

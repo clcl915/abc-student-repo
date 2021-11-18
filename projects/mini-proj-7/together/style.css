@@ -1,0 +1,89 @@
+body{
+  font-family: 'Roboto';
+}
+:root{
+  --color-1: blue;
+  --color-2: green;
+  --color-3: pink;
+  --color-4: black;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper{
+  position: absolute;
+  flex-direction: column;
+  text-align: center;
+  z-index:999;
+  border-radius: 15px;
+  backdrop-filter: blur(20px);
+  width:75%;
+  height:75%;
+  color:white;
+  padding: 10px 15px;
+  background-image: linear-gradient(45deg, #ffffff2f, #ffffff10);
+}
+.container{
+  flex-direction: column;
+  width: 100vw;
+  height:100vh;
+  background: -webkit-linear-gradient(-45deg,  var(--color-1),  var(--color-2)),-webkit-linear-gradient(315deg,  var(--color-3),  var(--color-4));
+  background-blend-mode: screen;
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+}
+.controls,.inputArea{
+  flex-direction: row;
+  margin: 10px 0;
+}
+#buttonOutput{
+  width:100px;
+  height:100px;
+  background-color: black;
+}
+.colorBlob{
+  position:absolute;
+  opacity: 0.7;
+  filter: blur(45px);
+  width:100px;
+  height:100px;
+  border-radius: 50px;
+}
+.namebox, .inputcolorbox{
+  text-align: start;
+}
+input{
+  width: 100%;
+}
+button{
+  padding: 10px;
+  margin:10px 0;
+  border:0;
+  font-weight: bold;
+  border:1px solid gray;
+  border-radius:7px;
+  width: max-content;
+}
+#textBox{
+  left:0px;
+  top:0px;
+  pointer-events: none;
+}
+#inputtedcolor, #whichUser{
+  /* position:absolute; */
+  font-weight: 900;
+  /* font-size: 20px; */
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
