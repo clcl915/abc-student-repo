@@ -56,12 +56,14 @@ socket.on("welcomeToAT", function(welcomePack){
         conn.on('open', function(){
           console.log('connection now open');
           //keep track of our connections in this array
-          //this results in the loop
+          //this results in the loop to send our X and Y location to all our connections
           myConnection.push({
             connection:conn
           })
 
+          //create image for person WE called
           let img= getMouseImage();
+          //push that image if this person sends us data
           conn.on('data', function(data){
             console.log('received', data);
             img.style.left = data.x-20 + "px";
