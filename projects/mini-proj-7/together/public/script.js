@@ -1,4 +1,4 @@
-let socket = io("https://almondine-gusty-tulip.glitch.me");
+let socket = io();
 let others = [];
 let colorgradientArray = ['--color-1','--color-2','--color-3','--color-4'];
 let myId;
@@ -82,35 +82,6 @@ function makeblob(msg){
   // div.style.backgroundColor = msg.choosenColor;
   container.appendChild(div);
 }
-// function buttonReceived(){
-//   buttonOutput.style.backgroundColor = "red";
-//   setTimeout(function(){
-//     buttonOutput.style.backgroundColor = "black";
-//   }, 500)
-// }
-
-// all.addEventListener("click", ()=>{
-//   console.log("click");
-//   socket.emit('button1ToAll');
-// })
-// allbutme.addEventListener("click", ()=>{
-//   console.log("click");
-//   socket.emit('button1ToAllButMe');
-// })
-// randomSingle.addEventListener("click", ()=>{
-//   if (others.length >0) {
-//     let ranFloat = Math.random()*others.length;
-//     let randIndx=Math.floor(ranFloat);
-//     let randomOtherId = others[randIndx];
-//     socket.emit('button1ToSingle',{id:randomOtherId})
-//   }
-// })
-//
-// socket.on('button1', function(msg) {
-//   if(testMode && msg.from != myId){return}
-//   buttonReceived();
-// });
-
 
 let textInput = document.getElementById("textinput");
 let textsubmit =document.getElementById('sendText');
