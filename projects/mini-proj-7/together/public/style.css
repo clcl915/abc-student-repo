@@ -18,6 +18,7 @@ body{
   text-align: center;
   z-index:999;
   border-radius: 15px;
+  -webkit-backdrop-filter:blur(20px);
   backdrop-filter: blur(20px);
   width:75%;
   height:75%;
