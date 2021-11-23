@@ -1,4 +1,4 @@
-** How do relationships, intimacy, and interpersonal connections exist online? **
+**How do relationships, intimacy, and interpersonal connections exist online?**
 
 After reading the two articles, I found it interesting that non-digital-natives found that this kind of online relationships or just sharing complex emotions online isn't a part of their reality. I think as I grew up and with the people around me, I was already part of the digital-natives. Growing up with the internet naturally allowed me to share my emotions and life updates to the web.
 
