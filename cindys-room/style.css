@@ -59,7 +59,7 @@ a{
 ul{
   list-style: none;
 }
-#miniProjects li::before {
+#miniProjects li:last-child::before {
   content: "\2022";
   color: #ff887c;
   font-weight: bold;
@@ -110,6 +110,13 @@ ul{
 }
 #miniProjects li:nth-child(5)::before {
   content: "\2764";
+  font-weight: bold;
+  display: inline-block;
+  width: 1.3em;
+  margin-left: -1.3em;
+}
+#miniProjects li:nth-child(6)::before {
+  content: "\1F34A";
   font-weight: bold;
   display: inline-block;
   width: 1.3em;
