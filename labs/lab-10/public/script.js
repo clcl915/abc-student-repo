@@ -21,7 +21,7 @@ document.body.addEventListener("mousemove", function(iMoveMouse){
   ourMouse.style.top = iMoveMouse.clientY-10 + "px";
 
   for (let i=0; i<myConnection.length;i++){
-    myConnection[i].cnnection.send({x:iMoveMouse.clientX,y:iMoveMouse.clientY});
+    myConnection[i].connection.send({x:iMoveMouse.clientX,y:iMoveMouse.clientY});
   }
 })
 

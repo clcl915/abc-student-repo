@@ -1,10 +1,13 @@
-const express = require('express')
-const app = express()
-const port = 3000
+let express = require('express');
+let app = express();
 let http = require('http').createServer(app);
 let io = require("socket.io")(http);
 
 app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
 
 
 let connected = [];
@@ -70,6 +73,6 @@ io.on('connection', (socket) => {
 
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+http.listen(3000, () => {
+  console.log('listening on *:3000');
 });
