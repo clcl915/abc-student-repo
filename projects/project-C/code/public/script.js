@@ -1,12 +1,13 @@
 let socket = io();
 // let socket = io({ transports: ["websocket"], upgrade: false });
-
-// var character = document.querySelector(".character");
 let map = document.querySelector(".map");
+let chatInput = document.querySelector(".chatInput");
+let messagebox = document.querySelector("#message");
+let textEnter = document.querySelector("#send");
+let userText;
 let pixelSize = parseInt(
   getComputedStyle(document.documentElement).getPropertyValue("--pixel-size")
 );
-
 let x = 90;
 let y = 34;
 let held_directions = []; //State of which arrow keys we are holding down
@@ -14,6 +15,9 @@ let speed = 1; //How fast the character moves in pixels per frame
 let numOfUsers = 0;
 let users = [];
 let lastKey;
+let collision = false;
+let pressedDirection='';
+
 socket.on("singleId", function (msg) {
   console.log("My ID:", msg.value);
   myId = msg.value;
@@ -26,46 +30,49 @@ socket.on("updatedClients", function (msg) {
   console.log("updatedClients", msg);
 });
 socket.on("addUser", (msg) => {
-  //creating new character for new user
+  //creating new character for each new user
   console.log(msg.id);
   console.log("new player");
   let newplayer = document.createElement("div");
-  newplayer.classList.add("character");
-  newplayer.id = msg.id;
-  newplayer.setAttribute("facing", "down");
-  newplayer.setAttribute("walking", "false");
+    newplayer.classList.add("character");
+    newplayer.id = msg.id;
+    newplayer.setAttribute("facing", "down");
+    newplayer.setAttribute("walking", "false");
   let newplayerShadow = document.createElement("div");
-  newplayerShadow.classList.add("shadow");
-  newplayerShadow.classList.add("pixel-art");
+    newplayerShadow.classList.add("shadow");
+    newplayerShadow.classList.add("pixel-art");
   let newplayerCollisionDetector = document.createElement("div");
-  newplayerCollisionDetector.classList.add("collisionDetector");
+    newplayerCollisionDetector.classList.add("collisionDetector");
   let newplayerSprite = document.createElement("div");
-  newplayerSprite.classList.add("character_spritesheet");
-  newplayerSprite.style.setProperty("--colorAngle", "" + msg.color + "deg");
-  newplayerSprite.classList.add("pixel-art");
+    newplayerSprite.classList.add("character_spritesheet");
+    newplayerSprite.style.setProperty("--colorAngle", "" + msg.color + "deg");
+    newplayerSprite.classList.add("pixel-art");
+  let newplayerText = document.createElement("div");
+    newplayerText.classList.add("userText");
+    let innerText = document.createElement("p");
+    innerText.classList.add("text");
+    newplayerText.appendChild(innerText);
   newplayer.append(
     newplayerShadow,
     newplayerCollisionDetector,
-    newplayerSprite
+    newplayerSprite,
+    newplayerText
   );
-  // newplayer.style.transform = `translate3d( ${x*pixelSize+msg.x}px, ${y*pixelSize+msg.y}px, 0 )`;
   map.appendChild(newplayer);
   users.push(newplayer);
-  console.log(newplayer);
-  console.log(msg);
-  console.log(users);
-  // placeCharacter(posX,posY,newplayer);
-  // thisPlayer
-  console.log(newplayer);
-  // step();
+  // console.log(newplayer);
+  // console.log(msg);
+  // console.log(users);
   placeCharacter(msg.x, msg.y, msg.id);
-  // socket.emit('move', msg);
 });
+
 socket.on("removeUser", (msg) => {
-  console.log("removed");
   console.log(msg.id);
   users.find((x) => x.id === msg.id).remove();
+  console.log("removed");
+
 });
+
 const placeCharacter = (posX, posY, playerId) => {
   users.find((x) => x.id === playerId).style.transform = `translate3d( ${
     x * pixelSize + posX
@@ -80,8 +87,14 @@ const moveCharacters = (posX, posY, playerId) => {
   );
   // console.log(users);
   if (playerId === myId) {
+    thisPlayer = users.find((x) => x.id === playerId);
+    userText=thisPlayer.getElementsByClassName('userText')[0];
+    let lastFace = thisPlayer.getAttribute("facing");
+    let lastX= x;
+    let lastY=y;
     let held_direction = held_directions[0];
     if (held_direction) {
+      pressedDirection = held_direction;
       if (held_direction === directions.right) {
         x += speed;
       }
@@ -94,13 +107,32 @@ const moveCharacters = (posX, posY, playerId) => {
       if (held_direction === directions.up) {
         y -= speed;
       }
-      // console.log(document.getElementById(player));
       users
         .find((x) => x.id === playerId)
         .setAttribute("facing", held_direction);
-
-      // socket.emit('move', {x:posX,y:posY,id:playerId});
+  }
+    for (let i = 0; i < users.length; i++) {
+      if (thisPlayer != users[i]){
+        if (!checkOverlap(
+          thisPlayer.getElementsByClassName("collisionDetector")[0],
+          users[i].getElementsByClassName("collisionDetector")[0]
+        )){
+          if (pressedDirection!=lastFace){
+            collision = false;
+            chatInput.style.display = "none";
+          }
+          else{
+            x=lastX;
+            y=lastY;
+            collision = true;
+            chatInput.style.display = "block";
+          }
+          console.log(collision);
+          break
+        }
+      }
     }
+
     users
       .find((x) => x.id === playerId)
       .setAttribute("walking", held_direction ? "true" : "false");
@@ -125,12 +157,16 @@ const moveCharacters = (posX, posY, playerId) => {
 
     var camera_left = pixelSize * 66;
     var camera_top = pixelSize * 42;
-    map.style.transform = `translate3d( ${-x * pixelSize + camera_left}px, ${
-      -y * pixelSize + camera_top
-    }px, 0 )`;
-    users.find((x) => x.id === playerId).style.transform = `translate3d( ${
-      x * pixelSize + posX
-    }px, ${y * pixelSize + posY}px, 0 )`;
+    // console.log(collision);
+    if ((!collision)){
+      map.style.transform = `translate3d( ${-x * pixelSize + camera_left}px, ${
+        -y * pixelSize + camera_top
+      }px, 0 )`;
+      users.find((x) => x.id === playerId).style.transform = `translate3d( ${
+        x * pixelSize + posX
+      }px, ${y * pixelSize + posY}px, 0 )`;
+    }
+
     socket.emit("move", {
       x: x * pixelSize + posX,
       y: y * pixelSize + posY,
@@ -140,28 +176,15 @@ const moveCharacters = (posX, posY, playerId) => {
   }
 };
 
-//Set up the game loop
+//Game Loop with requestAnimationFrame
 const step = (posX, posY, player) => {
-  // socket.emit('move', {x:posX,y:posY,id:player});
-  // console.log(player);
-  // socket.emit('move', msg);
-  // console.log(msg.id + " emit move");
   document.getElementById("date").innerHTML = new Date().toLocaleTimeString();
   moveCharacters(posX, posY, player);
-  thisPlayer = users.find((x) => x.id === player);
-  for (let i = 0; i < users.length; i++) {
-    if (thisPlayer != users[i])
-      if (checkOverlap(
-        thisPlayer.getElementsByClassName("collisionDetector")[0],
-        users[i].getElementsByClassName("collisionDetector")[0]
-      )){
-        break
-      }
-  }
   window.requestAnimationFrame(() => {
     step(posX, posY, player);
   });
 };
+
 socket.on("move", (msg) => {
   if (msg.id != myId) {
     users.find(
@@ -200,7 +223,7 @@ document.addEventListener("keyup", (e) => {
   }
 });
 
-/* BONUS! Dpad functionality for mouse and touch */
+/* Dpad functionality for mouse and touch */
 var isPressed = false;
 const removePressedAll = () => {
   document.querySelectorAll(".dpad-button").forEach((d) => {
@@ -290,3 +313,28 @@ function checkOverlap(a, b) {
     )
   );
 }
+// console.log(userText);
+textEnter.addEventListener("click", ()=>{
+  console.log("entered text");
+  let message=messagebox.value.trim();
+  console.log(message);
+  if (message!=""){
+    socket.emit('message', {id:myId,message:message});
+  };
+  messagebox.value ="";
+});
+messagebox.addEventListener("keyup",(event)=>{
+  if (event.keyCode===13){
+    textEnter.click();
+  }
+})
+socket.on("incoming",(data)=>{
+  console.log(data);
+  let message=data.message;
+  let user = users.find((x) => x.id === data.id)
+  user.getElementsByClassName("text")[0].innerHTML = message;
+  setTimeout(
+    function() {
+      user.getElementsByClassName("text")[0].innerHTML = '';
+    }, 5000);
+})

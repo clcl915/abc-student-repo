@@ -32,8 +32,17 @@ class Users{
     });
     this.movement();
 
-
+    this.socket.on("message", (data)=>{
+      console.log(data);
+      this.socket.emit("incoming",data);
+      for (let i=0;i<connectedUsers.length;i++){
+        connectedUsers[i].socket.emit('incoming',data);
+        this.socket.emit('incoming',data);
+      }
+    });
+    // this.socket.emit("incoming",data);
   }
+
   movement(){
     this.socket.emit('move', {x:this.x,y:this.y,id:this.socket.id,direction:this.direction});
     for (let i=0;i<connectedUsers.length;i++){
