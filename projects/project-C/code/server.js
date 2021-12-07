@@ -86,6 +86,25 @@ io.on('connection', (socket) => {
   //   // console.log("moving");
   //   io.emit('move', msg);
   // });
+  socket.on('reconnect', () => {
+    console.log('user disconnected', socket.id);
+    let idx = connectedUsers.indexOf(socket.id);
+    // socket.emit('removeUser',{index:idx});
+    connectedUsers.forEach(id=>{
+      // let copy = [...connectedUsers];
+      io.emit("removeUser",{id:socket.id})
+      // io.to(id).emit("updatedClients", {value: copy.filter(otherid=>otherid!=id)});
+      // socket.emit('removeUser',{id});
+    })
+    connectedUsers.splice(idx, 1);
+    const entries = Object.entries(connectedUsers);
+    console.log(entries.length);
+    io.emit("updatedClients", {length: entries.length});
+    // console.log(connectedUsers);
+    // delete connectedUsers[socket.id];
+    // console.log(connectedUsers);
+
+  });
 
   socket.on('disconnect', () => {
     console.log('user disconnected', socket.id);
