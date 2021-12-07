@@ -3,7 +3,7 @@
    --grid-cell: calc( var(--pixel-size) * 16);
    --halfW: 50vw;
    --halfH:50vh;
-   --bg: #9fa7e4;
+   --bg: #80b1ff;
    --colorAngle;
 }
 @media( min-width: 700px ) {
@@ -34,47 +34,96 @@ body {
    align-items: center;
    justify-content: center;
 }
-
+.gameStart{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+}
+.startButton,.goButton{
+  border-radius: 5px;
+  border:1px solid #837d76;
+  color:white;
+  padding: 4px 30px;
+  background: #9e7c4d;
+  text-align: center;
+  font-size: 20px;
+  background-color: #9e7c4d;
+  text-shadow: -1px -1px #83653d, 1px 1px #ffffff;
+  color: #ffeacb;
+  box-shadow: 0 0.2em #7a7a79b0;
+  cursor: pointer;
+  font-family: 'VT323', monospace;
+  font-size: 25px;
+}
+.goButton{
+  display: none;
+}
+.startButton:active,.goButton:active{
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
+.gameStartInput{
+  display: none;
+  -webkit-appearance: none;
+  background: #fafafa;
+  border: none;
+  width: 25%;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+}
 .pixel-art {
    image-rendering: pixelated;
 }
 
 .frame {
    /* This is just for Pen decoration */
-   width: calc(var(--pixel-size) * var(--halfW));
-   height: calc(var(--pixel-size) * var(--halfH));
+   width: calc(var(--pixel-size) * 200);
+   height: calc(var(--pixel-size) * 150);
    outline: var(--pixel-size) solid #fff;
    z-index:1;
    position:relative;
 }
 
 .camera {
-   width: calc(var(--pixel-size) * var(--halfW));
-   height: calc(var(--pixel-size) * var(--halfH));
+   width: calc(var(--pixel-size) * 200);
+   height: calc(var(--pixel-size) * 150);
    overflow: hidden;
-   background: #61ddf7;
+   background: #53dbf5;
    position:relative;
 }
 
 .map {
    image-rendering: pixelated;
-   background-image: url("https://assets.codepen.io/21542/CameraDemoMap.png");
+   /* https://limezu.itch.io/serenevillage */
+   background-image: url("assets/cindys-town.png");
    background-size: 100%;
-   width: calc(13 * var(--grid-cell));
-   height: calc(10 * var(--grid-cell));
+   background-repeat: no-repeat;
+   width: calc(20 * var(--grid-cell));
+   height: calc(20 * var(--grid-cell));
    position: relative;
 }
 
 .character {
-   width: calc( var(--grid-cell)* 2 );
-   height: calc( var(--grid-cell)* 2 );
+   width: calc( var(--grid-cell)* 1 );
+   height: calc( var(--grid-cell)* 1 );
    position: absolute;
    overflow:hidden;
 }
 
 .shadow {
-   width: calc( var(--grid-cell)* 2 );
-   height: calc( var(--grid-cell)* 2 );
+   width: calc( var(--grid-cell)* 1 );
+   height: calc( var(--grid-cell)* 1 );
    position: absolute;
    left:0;
    top:0;
@@ -94,25 +143,25 @@ body {
    background: url("https://assets.codepen.io/21542/DemoRpgCharacter.png") no-repeat no-repeat;
    background-size: 100%;
    filter: hue-rotate(var(--colorAngle));
-   width: calc( var(--grid-cell)* 8 );
-   height: calc( var(--grid-cell)* 8 );
+   width: calc( var(--grid-cell)* 4 );
+   height: calc( var(--grid-cell)* 4 );
 }
 .userText{
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 10%;
+  top: -10%;
   text-align: center;
   left: 0;
 }
 .character[facing="right"] .character_spritesheet {
-   background-position-y: calc( var(--pixel-size) * -32 );
+   background-position-y: calc( var(--pixel-size) * -16 );
 }
 .character[facing="up"] .character_spritesheet {
-   background-position-y: calc( var(--pixel-size) * -64 );
+   background-position-y: calc( var(--pixel-size) * -32 );
 }
 .character[facing="left"] .character_spritesheet {
-   background-position-y: calc( var(--pixel-size) * -96 );
+   background-position-y: calc( var(--pixel-size) * -48 );
 }
 .character[walking="true"] .character_spritesheet {
    animation: walkAnimation 0.6s steps(4) infinite;

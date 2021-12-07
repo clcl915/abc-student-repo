@@ -1,6 +1,7 @@
 let express = require('express')
 let app = express()
 let port = 3000
+// let port = process.env.PORT //for glitch
 let http = require('http').createServer(app);
 let io = require("socket.io")(http);
 
@@ -16,11 +17,21 @@ class Users{
     this.direction="down";
     this.color=(Math.floor(Math.random() * 360) + 1);
     this.socket = socket;
+    this.name = "anonymous";
+    this.socket.on('name',(msg)=>{
+      this.name=msg.name;
+      this.id=msg.id;
+      this.socket.emit("addname",{name:this.name,id:this.id});
+      for (let i=0;i<connectedUsers.length;i++){
+        connectedUsers[i].socket.emit('addname',{name:this.name,id:this.id});
+        this.socket.emit('addname',{name:connectedUsers[i].name,id:connectedUsers[i].id});
+      }
+    });
 
-    this.socket.emit('addUser', {x:this.x,y:this.y,id:this.socket.id,color:this.color});
+    this.socket.emit('addUser', {x:this.x,y:this.y,id:this.socket.id,color:this.color,name:this.name});
     for (let i=0;i<connectedUsers.length;i++){
-      connectedUsers[i].socket.emit('addUser',{x:this.x,y:this.y,id:this.socket.id,color:this.color});
-      this.socket.emit('addUser',{x:connectedUsers[i].x,y:connectedUsers[i].y,id:connectedUsers[i].socket.id,color:connectedUsers[i].color});
+      connectedUsers[i].socket.emit('addUser',{x:this.x,y:this.y,id:this.socket.id,color:this.color,name:this.name});
+      this.socket.emit('addUser',{x:connectedUsers[i].x,y:connectedUsers[i].y,id:connectedUsers[i].socket.id,color:connectedUsers[i].color,name:connectedUsers[i].name});
     }
 
     this.socket.on('move', (msg) => {

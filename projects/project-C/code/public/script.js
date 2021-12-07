@@ -22,7 +22,25 @@ socket.on("singleId", function (msg) {
   console.log("My ID:", msg.value);
   myId = msg.value;
 });
+let myUser= users.find((x) => x.id === myId);
 
+document.getElementsByClassName('startButton')[0].addEventListener("click",()=>{
+  document.querySelector(".gameStart > img").src = "assets/name.png";
+  document.getElementsByClassName('startButton')[0].style.display= "none";
+  document.getElementsByClassName('goButton')[0].style.display= "block";
+  document.querySelector(".gameStartInput").style.display= "block";
+});
+document.getElementsByClassName('goButton')[0].addEventListener("click",()=>{
+  let input = document.querySelector(".gameStartInput").value;
+  console.log(input);
+  socket.emit("name", {id:myId,name:input});
+  document.getElementsByClassName('gameStart')[0].style.display= "none";
+});
+document.getElementsByClassName('gameStart')[0].addEventListener("keyup",(event)=>{
+  if (event.keyCode===13){
+    document.getElementsByClassName('goButton')[0].click();
+  }
+})
 socket.on("updatedClients", function (msg) {
   console.log(msg.length);
   numOfUsers = parseInt(msg.length);
@@ -50,6 +68,7 @@ socket.on("addUser", (msg) => {
   let newplayerText = document.createElement("div");
     newplayerText.classList.add("userText");
     let innerText = document.createElement("p");
+    innerText.innerHTML = msg.name;
     innerText.classList.add("text");
     newplayerText.appendChild(innerText);
   newplayer.append(
@@ -60,12 +79,12 @@ socket.on("addUser", (msg) => {
   );
   map.appendChild(newplayer);
   users.push(newplayer);
-  // console.log(newplayer);
-  // console.log(msg);
-  // console.log(users);
   placeCharacter(msg.x, msg.y, msg.id);
 });
-
+socket.on("addname",(msg) =>{
+  users.find((x) => x.id === msg.id).getElementsByClassName("text")[0].innerHTML = msg.name;
+  users.find((x) => x.id === msg.id).name = msg.name;
+})
 socket.on("removeUser", (msg) => {
   console.log(msg.id);
   users.find((x) => x.id === msg.id).remove();
@@ -139,9 +158,9 @@ const moveCharacters = (posX, posY, playerId) => {
 
     //Limits (gives the illusion of walls)
     var leftLimit = -8;
-    var rightLimit = 16 * 11 + 8;
-    var topLimit = -8 + 32;
-    var bottomLimit = 16 * 7;
+    var rightLimit = 16 * 17 + 8;
+    var topLimit = 0;
+    var bottomLimit = 16 * 12;
     if (x < leftLimit) {
       x = leftLimit;
     }
@@ -304,13 +323,12 @@ document
 function checkOverlap(a, b) {
   var aRect = a.getBoundingClientRect();
   var bRect = b.getBoundingClientRect();
+  // console.log(aRect.top + aRect.height + " and " + bRect.top)
   return(
-    (
-      aRect.top + aRect.height < bRect.top ||
-      aRect.top > bRect.top + bRect.height ||
-      aRect.left + aRect.width < bRect.left ||
-      aRect.left > bRect.left + bRect.width
-    )
+    ((aRect.top + aRect.height) < (bRect.top)) ||
+     (aRect.top > (bRect.top + bRect.height)) ||
+     ((aRect.left + aRect.width) < bRect.left) ||
+     (aRect.left > (bRect.left + bRect.width))
   );
 }
 // console.log(userText);
@@ -335,6 +353,6 @@ socket.on("incoming",(data)=>{
   user.getElementsByClassName("text")[0].innerHTML = message;
   setTimeout(
     function() {
-      user.getElementsByClassName("text")[0].innerHTML = '';
+      user.getElementsByClassName("text")[0].innerHTML = user.name;
     }, 5000);
 })
