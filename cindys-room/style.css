@@ -1,145 +1,165 @@
+:root {
+   --pixel-size: 2px;
+   --grid-cell: calc( var(--pixel-size) * 16);
+}
+@media( min-width: 700px ) {
+   :root {
+      --pixel-size: 3px;
+   }
+}
+@media( min-width: 1000px ) {
+   :root {
+      --pixel-size: 4px;
+   }
+}
+
 body{
-  background-image: url(./assets/3d-website-design-background-1.jpg);
   object-fit: contain;
-  font-family: 'Lato', sans-serif;
-  color:white;
-  width: 80vw;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right;
+  font-family: 'VT323', monospace;
+  color:#666666;
+  font-size: 20px;
   margin: auto;
-  background-color: #5C5EF7;
-}
-#selfIntro{
-  display:flex;
-  align-items: center;
-  height:100vh;
-  flex-direction: column;
-}
-.menu{
-  width: 100%;
-  border-bottom: 1px solid white;
-  display:flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-.about{
-  text-align: right;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-#aboutLink{
-  text-decoration: underline;
-  cursor: pointer;
-  color:inherit;
-  font-size: 18px;
-  font-weight: 700;
-  font-family: 'Lato', sans-serif;
-}
-.hidden{
-  visibility: hidden;
-}
-
-#subText{
-  width: 100%;
-  text-align: left;
-}
-.projects{
-  width: 100%;
-  text-align: left;
+  text-align: center;
+  width: 100vw;height: 100vh;
+  overflow: hidden;
+  image-rendering: pixelated;
   display: flex;
-  flex-direction: row;
-  gap:20%;
-}
-a{
-  color:inherit;
-}
-ul{
-  list-style: none;
-}
-#miniProjects li:last-child::before {
-  content: "\2022";
-  color: #ff887c;
-  font-weight: bold;
-  display: inline-block;
-  width: 1.3em;
-  margin-left: -1.3em;
+  align-items: center;
+  justify-content: center;
 }
 
-#largeProjects li::before {
-  content: "\2022";
-  color:#FCCD81;
-  font-weight: bold;
-  display: inline-block;
-  width: 1.3em;
-  margin-left: -1.3em;
+.camera {
+   /* width: 100vw;
+   height: 100vh; */
+   width: calc(30 * var(--grid-cell));
+   height: calc(20 * var(--grid-cell));
+  /* background-image: url(assets/static-bg.png); */
+   overflow: hidden;
+   position:relative;
 }
-#miniProjects li:first-child::before {
-  content: "\2744";
-  color: #99FFFF;
-  font-weight: bold;
-  display: inline-block;
-  width: 1.3em;
-  margin-left: -1.3em;
+.backgroundContainer{
+  image-rendering: pixelated;
+  background-image: url(assets/cindyroom-bkg.png);
+  width: calc(167 * var(--grid-cell));
+  height: calc(60 * var(--grid-cell));
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: relative;
 }
-#miniProjects li:nth-child(2)::before {
-  content: "\1F4DD";
-  color: #99FFFF;
-  font-weight: bold;
-  display: inline-block;
-  width: 1.3em;
-  margin-left: -1.3em;
+#dino {
+  height: 96px;
+  width: 96px;
+  position: absolute;
+  image-rendering: pixelated;
+  background: url("assets/dino-spritesheet.png")
+    0px 0px;
+  /* width: calc( var(--grid-cell)* 6 );
+  height: calc( var(--grid-cell)* 6 ); */
+  left:calc(var(--pixel-size) * 31);
+  bottom:calc(var(--pixel-size) * 53);
 }
-#miniProjects li:nth-child(3)::before {
-  content: "\1F995";
-  color: #99FFFF;
-  font-weight: bold;
-  display: inline-block;
-  width: 1.3em;
-  margin-left: -1.3em;
+.dinoAnimation{
+  animation: play 0.7s steps(10) infinite;
 }
-#miniProjects li:nth-child(4)::before {
-  content: " \1F921";
-  color: #99FFFF;
-  font-weight: bold;
-  display: inline-block;
-  width: 1.3em;
-  margin-left: -1.3em;
-}
-#miniProjects li:nth-child(5)::before {
-  content: "\2764";
-  font-weight: bold;
-  display: inline-block;
-  width: 1.3em;
-  margin-left: -1.3em;
-}
-#miniProjects li:nth-child(6)::before {
-  content: "\1F34A";
-  font-weight: bold;
-  display: inline-block;
-  width: 1.3em;
-  margin-left: -1.3em;
-}
-#largeProjects li:first-child::before {
-  content: "\270B";
-  color:#FCCD81;
-  font-weight: bold;
-  display: inline-block;
-  width: 1.3em;
-  margin-left: -1.3em;
-}
-#largeProjects li:nth-child(2)::before {
-  content: "\1F3E0";
-  color:#FCCD81;
-  font-weight: bold;
-  display: inline-block;
-  width: 1.3em;
-  margin-left: -1.3em;
-}
-@media screen and (max-width: 700px){
-  .projects{
-    flex-direction: column;
+@keyframes play {
+  100% {
+    background-position: -944px;
   }
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome{
+  width: calc( var(--grid-cell)* 4 );
+  position:relative;
+  color:white;
+  left:calc(var(--pixel-size) * 90);
+  top:calc(var(--pixel-size) * 130);
+}
+.instructions{
+  width: calc( var(--grid-cell)* 8 );
+  position:absolute;
+  color:white;
+  left:calc(var(--pixel-size) * 200);
+  top:calc(var(--pixel-size) * 20);
+  font-size:25px;
+  font-weight: 800;
+  animation: blinker 1.5s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+.projNames{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* color:white; */
+  /* left:calc(var(--pixel-size) * 200); */
+  /* top:calc(var(--pixel-size) * 130); */
+}
+.projNames > *{
+    color: white;
+    text-decoration: none;
+}
+
+.projNames > *:hover{
+    color:#0060B6;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+#mini1{
+  position: relative;
+  left:calc(var(--pixel-size) * 342);
+  top:calc(var(--pixel-size) * 100);
+}
+#mini2{
+  position: relative;
+  left:calc(var(--pixel-size) * 225);
+  top:calc(var(--pixel-size) * 100);
+}
+#mini3{
+  position: relative;
+  left:calc(var(--pixel-size) * 116);
+  top:calc(var(--pixel-size) * 100);
+}
+#big1{
+  position: relative;
+  left: calc(var(--pixel-size) * 36);
+  top: calc(var(--pixel-size) * 70);
+}
+#mini4{
+  position: relative;
+  left: calc(var(--pixel-size) * -50);
+  top: calc(var(--pixel-size) * 100);
+}
+#mini5{
+  position: relative;
+  left:calc(var(--pixel-size) * -165);
+  top:calc(var(--pixel-size) * 100);
+}
+#big2{
+  position: relative;
+  left: calc(var(--pixel-size) * -250);
+  top: calc(var(--pixel-size) * 70);
+}
+#mini6{
+  position: relative;
+  left:calc(var(--pixel-size) * -337);
+  top:calc(var(--pixel-size) * 100);
+}
+#mini7{
+  position: relative;
+  left:calc(var(--pixel-size) * -455);
+  top:calc(var(--pixel-size) * 130);
+}
+#big3{
+  position: relative;
+  left:calc(var(--pixel-size) * -540);
+  top:calc(var(--pixel-size) * 70);
 }
