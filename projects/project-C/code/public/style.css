@@ -263,13 +263,31 @@ body {
    right: calc(var(--pixel-size) * -1);
 }
 
-.headline {
+.headline,.info {
    position:absolute;
    text-align: right;
    font-size: 20px;
    top:calc(var(--pixel-size) * 0);
    right:calc(var(--pixel-size) * 5);
    width: calc(var(--pixel-size) * 50)
+}
+.info{
+  top:calc(var(--pixel-size) * 9);
+  width: 70%;
+  z-index:10;
+  cursor:pointer;
+}
+#infoButton{
+  font-weight:800;
+  padding:10px 15px;
+  border-radius:50px;
+  border:3px solid white;
+}
+.info p {
+  font-size:16px;
+  background:rgba(0,0,0,0.3);
+  padding:20px;
+  border-radius:25px;
 }
 .chatInput{
   position: absolute;

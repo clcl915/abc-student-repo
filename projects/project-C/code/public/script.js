@@ -8,6 +8,7 @@ let userText;
 let pixelSize = parseInt(
   getComputedStyle(document.documentElement).getPropertyValue("--pixel-size")
 );
+let myId;
 let x = 90;
 let y = 34;
 let held_directions = []; //State of which arrow keys we are holding down
@@ -41,6 +42,13 @@ document.getElementsByClassName('gameStart')[0].addEventListener("keyup",(event)
     document.getElementsByClassName('goButton')[0].click();
   }
 })
+document.getElementsByClassName('info')[0].addEventListener("click",()=>{
+  if (document.querySelector(".info > p").style.display == "none")
+    document.querySelector(".info > p").style.display= "block";
+  else
+        document.querySelector(".info > p").style.display= "none";
+
+});
 socket.on("updatedClients", function (msg) {
   console.log(msg.length);
   numOfUsers = parseInt(msg.length);
