@@ -61,7 +61,39 @@ const step = (posX, posY, player) => {
     }
   }
   if (last){
-    projArray[last].click();
+    switch (last) {
+      case 0:
+        window.location.href='../projects/mini-proj-1/index.html'
+        break;
+      case 1:
+        window.location.href='../projects/mini-proj-2/index.html'
+        break;
+      case 2:
+        window.location.href='../projects/mini-proj-3/index.html'
+        break;
+      case 3:
+        window.location.href='../projects/project-A/code/index.html'
+        break;
+      case 4:
+        window.location.href='https://github.com/clcl915/abc-student-repo/blob/master/projects/mini-proj-4/bug-project.zip'
+        break;
+      case 5:
+          window.location.href='https://github.com/clcl915/abc-student-repo/blob/master/projects/mini-proj-5/gift-project.zip'
+          break;
+      case 6:
+        window.location.href='https://github.com/clcl915/abc-student-repo/blob/master/projects/project-B/code.zip'
+        break;
+      case 7:
+        window.location.href='https://land-of-fruits.glitch.me'
+        break;
+      case 8:
+        window.location.href='https://awesome-teal-medicine.glitch.me'
+        break;
+      case 9:
+        window.location.href='https://toasty-town.glitch.me/'
+        break;
+    }
+    return
   }
   window.requestAnimationFrame(() => {
     step(posX, posY, player);
