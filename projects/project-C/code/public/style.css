@@ -89,7 +89,6 @@ body {
 }
 
 .frame {
-   /* This is just for Pen decoration */
    width: calc(var(--pixel-size) * 200);
    height: calc(var(--pixel-size) * 150);
    outline: var(--pixel-size) solid #fff;
