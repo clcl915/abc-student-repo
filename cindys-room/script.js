@@ -39,7 +39,7 @@ const moveCharacters = () => {
 
      // // Limits (gives the illusion of walls)
      var leftLimit = 90;
-     var rightLimit = 2130;
+     var rightLimit = 1470;
      if (x < leftLimit) { x = leftLimit; }
      if (x > rightLimit) { x = rightLimit; }
 

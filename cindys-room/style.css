@@ -31,8 +31,8 @@ body{
 .camera {
    /* width: 100vw;
    height: 100vh; */
-   width: calc(30 * var(--grid-cell));
-   height: calc(20 * var(--grid-cell));
+   width: calc(22 * var(--grid-cell));
+   height: calc(11 * var(--grid-cell));
   /* background-image: url(assets/static-bg.png); */
    overflow: hidden;
    position:relative;
@@ -40,9 +40,10 @@ body{
 .backgroundContainer{
   image-rendering: pixelated;
   background-image: url(assets/cindyroom-bkg.png);
-  width: calc(167 * var(--grid-cell));
-  height: calc(60 * var(--grid-cell));
+  width: calc(115 * var(--grid-cell));
+  height: calc(10 * var(--grid-cell));
   background-size: 100%;
+  background-position: bottom;
   background-repeat: no-repeat;
   position: relative;
 }
@@ -55,8 +56,8 @@ body{
     0px 0px;
   /* width: calc( var(--grid-cell)* 6 );
   height: calc( var(--grid-cell)* 6 ); */
-  left:calc(var(--pixel-size) * 31);
-  bottom:calc(var(--pixel-size) * 53);
+  left:calc(var(--pixel-size) * 25);
+  bottom:calc(var(--pixel-size) * 29);
 }
 .dinoAnimation{
   animation: play 0.7s steps(10) infinite;
@@ -73,17 +74,17 @@ body{
 }
 
 .welcome{
-  width: calc( var(--grid-cell)* 4 );
+  width: calc( var(--grid-cell)* 3.5);
   position:relative;
+  left:calc(var(--pixel-size) * 57);
+  top:calc(var(--pixel-size) * 35);
   color:white;
-  left:calc(var(--pixel-size) * 90);
-  top:calc(var(--pixel-size) * 130);
 }
 .instructions{
   width: calc( var(--grid-cell)* 8 );
   position:absolute;
   color:white;
-  left:calc(var(--pixel-size) * 200);
+  left:calc(var(--pixel-size) * 110);
   top:calc(var(--pixel-size) * 20);
   font-size:25px;
   font-weight: 800;
@@ -115,51 +116,51 @@ body{
 
 #mini1{
   position: relative;
-  left:calc(var(--pixel-size) * 342);
-  top:calc(var(--pixel-size) * 100);
+  left:calc(var(--pixel-size) * 229);
+  top:calc(var(--pixel-size) * 20);
 }
 #mini2{
   position: relative;
-  left:calc(var(--pixel-size) * 225);
-  top:calc(var(--pixel-size) * 100);
+  left:calc(var(--pixel-size) * 149);
+  top:calc(var(--pixel-size) * 20);
 }
 #mini3{
   position: relative;
-  left:calc(var(--pixel-size) * 116);
-  top:calc(var(--pixel-size) * 100);
+  left:calc(var(--pixel-size) * 78);
+  top:calc(var(--pixel-size) * 20);
 }
 #big1{
   position: relative;
-  left: calc(var(--pixel-size) * 36);
-  top: calc(var(--pixel-size) * 70);
+  left: calc(var(--pixel-size) * 26);
+  top: calc(var(--pixel-size) * 5);
 }
 #mini4{
   position: relative;
-  left: calc(var(--pixel-size) * -50);
-  top: calc(var(--pixel-size) * 100);
+  left: calc(var(--pixel-size) * -33);
+  top: calc(var(--pixel-size) * 20);
 }
 #mini5{
   position: relative;
-  left:calc(var(--pixel-size) * -165);
-  top:calc(var(--pixel-size) * 100);
+  left:calc(var(--pixel-size) * -111);
+  top:calc(var(--pixel-size) * 20);
 }
 #big2{
   position: relative;
-  left: calc(var(--pixel-size) * -250);
-  top: calc(var(--pixel-size) * 70);
+  left: calc(var(--pixel-size) * -168);
+  top: calc(var(--pixel-size) * 5);
 }
 #mini6{
   position: relative;
-  left:calc(var(--pixel-size) * -337);
-  top:calc(var(--pixel-size) * 100);
+  left:calc(var(--pixel-size) * -227);
+  top:calc(var(--pixel-size) * 20);
 }
 #mini7{
   position: relative;
-  left:calc(var(--pixel-size) * -455);
-  top:calc(var(--pixel-size) * 130);
+  left:calc(var(--pixel-size) * -308);
+  top:calc(var(--pixel-size) * 20);
 }
 #big3{
   position: relative;
-  left:calc(var(--pixel-size) * -540);
-  top:calc(var(--pixel-size) * 70);
+  left:calc(var(--pixel-size) * -368);
+  top:calc(var(--pixel-size) * 8);
 }
