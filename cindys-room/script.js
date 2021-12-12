@@ -58,9 +58,12 @@ const step = (posX, posY, player) => {
     checkOverlap(dino,projArray[i]);
     if (go == true){
       last = i;
+      console.log(i);
     }
   }
-  if (last){
+
+  if (last > -1){
+    console.log("works");
     switch (last) {
       case 0:
         window.location.href='../projects/mini-proj-1/index.html'
